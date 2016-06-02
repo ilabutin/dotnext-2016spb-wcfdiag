@@ -1,0 +1,1 @@
+DeclareFileView .etl "WCF Events" WcfCommands.OpenWcfEventsView
