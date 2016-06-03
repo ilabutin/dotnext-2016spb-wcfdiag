@@ -58,7 +58,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DemoCommands.cs" />
+    <Compile Include="Commands.cs" />
     <Compile Include="OperationData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

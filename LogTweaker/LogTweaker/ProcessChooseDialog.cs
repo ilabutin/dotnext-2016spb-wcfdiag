@@ -115,7 +115,10 @@ namespace EtwMonitor
         processList.Items.Add(p.Name);
       }
 
-      processList.SelectedIndex = 0;
+      if (processes.Any())
+      {
+        processList.SelectedIndex = 0;
+      }
     }
 
     private void selectButton_Click(object sender, EventArgs e)

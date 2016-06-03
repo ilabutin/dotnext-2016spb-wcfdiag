@@ -26,6 +26,10 @@ namespace EtwMonitor
       var processChooseDialog = new ProcessChooseDialog();
       processChooseDialog.ShowDialog();
       process = processChooseDialog.SelectedProcess;
+      if (process == null)
+      {
+        return;
+      }
       processNameTextBox.Text = process.Name;
       RefreshGrid();
     }

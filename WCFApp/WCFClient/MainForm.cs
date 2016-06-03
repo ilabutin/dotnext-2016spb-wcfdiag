@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Forms;
 using WCFContract;
 
@@ -41,11 +42,7 @@ namespace WCFClient
       }
       catch (Exception exception)
       {
-        while (exception.InnerException != null)
-        {
-          exception = exception.InnerException;
-        }
-        stateTextBox.Text = exception.Message;
+        PrintException(exception);
       }
     }
 
@@ -64,17 +61,21 @@ namespace WCFClient
       }
       catch (Exception exception)
       {
-        while (exception.InnerException != null)
-        {
-          exception = exception.InnerException;
-        }
-        stateTextBox.Text = exception.Message;
+        PrintException(exception);
       }
     }
 
-        private void setStateGroupBox_Enter(object sender, EventArgs e)
+    private void PrintException(Exception exception)
+    {
+        StringBuilder sb = new StringBuilder();
+        while (exception.InnerException != null)
         {
-
+            sb.AppendFormat("{0}:{1}", exception.GetType().Name, Environment.NewLine);
+            exception = exception.InnerException;
         }
+        sb.AppendLine("Message:");
+        sb.AppendLine(exception.Message);
+        stateTextBox.Text = sb.ToString();
     }
+  }
 }

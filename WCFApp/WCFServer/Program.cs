@@ -14,7 +14,7 @@ namespace WCFServer
       {
         ClientBase<IInternalContract>.CacheSetting = CacheSetting.AlwaysOff;
 
-        internalHost.Open();
+        //internalHost.Open();
         GlobalServerState.CurrentState = State.Stopped;
         host.Open();
 
